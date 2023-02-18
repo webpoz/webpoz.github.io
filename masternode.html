@@ -163,9 +163,49 @@ you want to pay yourself as a reward, and "voting_fee" with the amount of PZQ yo
 }<br>
   </code>
 <br>
-  Go to the vps where you have '.pozoqocore' folder and open the  pozoqo conf file <pozoqo class="conf"><br>
-    masternodeblsprivkey=395555d67d884364f9e37e7e1b29536519b74af2e5ff7b62122e62c2fffab35e
-    </pozoqo> 
+
+  <h3>Add the private key to your masternode configuration</h3>
+<p>Add the private key to your masternode configuration in the vps server</p>
+
+<code>nano ~/.pozoqocore/pozoqo.conf</code><br>
+<code>masternodeblsprivkey=395555d67d884364f9e37e7e1b29536519b74af2e5ff7b62122e62c2fffab35e
+</code>
+<br>
+
+<h3>Prepare a ProRegTx transaction</h3>
+<p>First, we need to get a new, unused address from the wallet to serve as the owner key address (ownerKeyAddr). 
+  This is not the same as the collateral address holding 1000 PZQ. Generate a new address as follows:</p>
+  <br>
+  <code>
+    
+    getnewaddress<br>
+yfgxFhqrdDG15ZWKJAN6dQvn6dZdgBPAip
+    
+    </code><br>
+
+    <p>
+      This address can also be used as the voting key address (votingKeyAddr). Alternatively, you can specify an
+       address provided to you by your chosen voting delegate, or simply generate a new voting key address as follows:
+       <code>
+        getnewaddress<br>
+
+yfRaZN8c3Erpqj9iKnmQ9QDBeUuRhWV3Mg 
+        </code>
+      </p>
+      <p>
+        Then either generate or choose an existing address to receive the owner's masternode payouts (payoutAddress). 
+        It is also possible to use an address external to the wallet:  <br>
+        <code>
+          getnewaddress<br>
+
+yjZVt49WsQd6XSrPVAUGXtJccxviH9ZQpN
+          </code>
+        </p>
+
+        <h3>Submit the signed message</h3>
+
+       <p>protx register_submit tx sig</p> 
+
 <br>
 
 
