@@ -87,17 +87,6 @@
 
     <div id="main-copy">
       <h1 id="masternode">Setup Masternode</h1>
-
-      <p>
-        
-      <p>This are the requirements to setup a Masternode, make sure you have <b>1,000 PZQ</b>, VPS server</p>
-        
-      <header>Send the Collateral Amount</header>
-      <p>From your wallet send the required amount of <b>1,000 PZQ</b> to an address you generated
-
-       <code>getnewaddress "masternode"</code>
-       
-       the above address is where you will send your collateral to. After sending it wait for 15 confirmation
       
         
 Open your Pozoqo wallet and make sure that you have enough PZQ coins to cover the masternode collateral of 1,000 PZQ.
@@ -110,39 +99,7 @@ Get the information needed to register your masternode. This includes the follow
 <li>Masternode BLS public key</li>
 <li>Masternode collateral transaction ID and output index</li><br>
 
-Create a new receiving address for your masternode. To do this, click on "Receive" and then "Create new address". 
-Copy the address as you will need it in a later step.
 
-Create a ProRegTx transaction. To do this, click on "Tools" > "Debug console" and enter the following command:<br>
-
-<code>protx register_prepare "masternode_IP:port" "BLS_public_key" "collateral_txid" collateral_output_index 
-"masternode_reward_address" "masternode_operator_key" "masternode_voting_key" "operator_reward" "voting_fee"</code><br>
-
-Replace "masternode_IP:port" with the IP address and port number of your masternode, "BLS_public_key" with the 
-public key generated in step 2, "collateral_txid" with the transaction ID of the PZQ coins you used as collateral, 
-"collateral_output_index" with the output index of the collateral transaction, "masternode_reward_address" with the 
-address generated in step above, "masternode_operator_key" with the private key generated in step 2, 
-"masternode_voting_key" with a new BLS key that will be used for voting, "operator_reward" with the amount of PZQ 
-you want to pay yourself as a reward, and "voting_fee" with the amount of PZQ you want to charge for voting.
-
-        </p>
-
-      <p><code>
-        protx register_prepare collateralHash collateralIndex ipAndPort ownerKeyAddr
-  operatorPubKey votingKeyAddr operatorReward payoutAddress (feeSourceAddress)
-        </code></p><br>
-
-        <ol>collateralHash: The txid of the 1000 PZQ collateral funding transaction</ol>
-        <ol>collateralIndex: The output index of the 1000 PZQ funding transaction</ol>
-        <ol>ipAndPort: Masternode IP address and port, in the format x.x.x.x:yyyy</ol>
-        <ol>ownerKeyAddr: The new Dash address generated above for the owner/voting address</ol>
-        <ol>operatorPubKey: The BLS public key generated above (or provided by your hosting service)</ol>
-        <ol>votingKeyAddr: The new Dash address generated above, or the address of a delegate, used for proposal voting</ol>
-        <ol>operatorReward: The percentage of the block reward allocated to the operator as payment</ol>
-        <ol>payoutAddress: A new or existing Dash address to receive the owner’s masternode rewards</ol>
-        <ol>feeSourceAddress: An (optional) address used to fund ProTx fee. payoutAddress will be used if not specified.</ol>
-
- 
 
       <h1>Sign the ProRegTx transaction</h1>
 <p>
@@ -202,8 +159,29 @@ yjZVt49WsQd6XSrPVAUGXtJccxviH9ZQpN
           </code>
         </p>
 
-        <h3>Submit the signed message</h3>
 
+        <h3>Prepare the registration</h3>
+        <p><code>
+        protx register_prepare collateralHash collateralIndex ipAndPort ownerKeyAddr
+  operatorPubKey votingKeyAddr operatorReward payoutAddress (feeSourceAddress)
+        </code></p><br>
+
+        <ol>collateralHash: The txid of the 1000 PZQ collateral funding transaction</ol>
+        <ol>collateralIndex: The output index of the 1000 PZQ funding transaction</ol>
+        <ol>ipAndPort: Masternode IP address and port, in the format x.x.x.x:yyyy</ol>
+        <ol>ownerKeyAddr: The new Dash address generated above for the owner/voting address</ol>
+        <ol>operatorPubKey: The BLS public key generated above (or provided by your hosting service)</ol>
+        <ol>votingKeyAddr: The new Dash address generated above, or the address of a delegate, used for proposal voting</ol>
+        <ol>operatorReward: The percentage of the block reward allocated to the operator as payment</ol>
+        <ol>payoutAddress: A new or existing Dash address to receive the owner’s masternode rewards</ol>
+        <ol>feeSourceAddress: An (optional) address used to fund ProTx fee. payoutAddress will be used if not specified.</ol>
+
+ 
+
+        <p>signmessage collateralAddress signMessage
+</p>
+
+<h3>Submit the signed message</h3>
        <p>protx register_submit tx sig</p> 
 
 <br>
