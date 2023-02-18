@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-AU">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="author" content="haran" />
+    <meta name="generator" content="author" />
+
+    <!-- Navigational metadata for large websites (an accessibility feature): -->
+    <link rel="top"      href="./index.html" title="Homepage" />
+    <link rel="up"       href="./index.html" title="Up" />
+    <link rel="first"    href="./index.html" title="First page" />
+    <link rel="previous" href="./index.html" title="Previous page" />
+    <link rel="next"     href="./index.html" title="Next page" />
+    <link rel="last"     href="./index.html" title="Last page" />
+    <link rel="toc"      href="./index.html" title="Table of contents" />
+    <link rel="index"    href="./index.html" title="Site map" />
+
+    <link rel="stylesheet" type="text/css" href="sinorca-screen.css" media="screen" title="Sinorca (screen)" />
+    <link rel="stylesheet alternative" type="text/css" href="sinorca-screen-alt.css" media="screen" title="Sinorca (alternative)" />
+    <link rel="stylesheet" type="text/css" href="sinorca-print.css" media="print" />
+
+    <title>Pozoqo</title>
+    <style type="text/css">
+<!--
+.style1 {color: #C1FF64}
+-->
+    </style>
+</head>
+
+  <body>
+    <!-- For non-visual user agents: -->
+      <div id="top"><a href="#main-copy" class="doNotDisplay doNotPrint">Skip to main content.</a></div>
+
+    <!-- ##### Header ##### -->
+
+      <div class="midHeader">
+        <h1 class="headerTitle">Pozoqo</h1>
+      </div>
+
+      <div class="subHeader">
+        <span class="doNotDisplay">Navigation:</span>
+        <a href="./index.html" class="highlight">Home</a> |
+        <a href="https://github.com/pozoqoproject/pozoqo">Github</a> |
+        <a href="https://explorer.pozoqo.tech">Explorer</a> |
+        <a href="./download.html">Download</a>
+      </div>
+    </div>
+
+    <!-- ##### Side Bar ##### -->
+
+    <div id="side-bar">
+      <div>
+        <p class="sideBarTitle">Navigate this page</p>
+        <ul>
+          <li><a href="#introduction">&rsaquo; Introduction</a></li>
+          <li><a href="#masternode" title="Masternode">&rsaquo; Masternode</a></li>
+          <li><a href="#specification" title="Pozoqo Specification">&rsaquo; Specification</a></li>
+          <li><a href="#mining" title="Mining">&rsaquo; Mining</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="sideBarTitle">Documentation</p>
+        <ul>
+          <li><a href="./masternode.html">&rsaquo; Setup Masternode</a></li>
+        </ul>
+      </div>
+
+      <div class="lighterBackground">
+        <p class="sideBarTitle">News</p>
+        <span class="sideBarText">
+          Swap of the old pozoqo takes place here
+        </span>
+        <span class="sideBarText">
+      You would have to send me the old pozoqo
+        </span>
+      </div>
+    
+      <div>
+     <span>Pozoqo</span>
+      </div>
+    </div>
+
+    <!-- ##### Main Copy ##### -->
+
+    <div id="main-copy">
+      <h1 id="masternode">Setup Masternode</h1>
+
+      <p>
+        
+      <p>This are the requirements to setup a Masternode, make sure you have <b>1,000 PZQ</b>, VPS server</p>
+        
+      <header>Send the Collateral Amount</header>
+      <p>From your wallet send the required amount of <b>1,000 PZQ</b> to an address you generated
+
+       <code>getnewaddress "masternode"</code>
+       
+       the above address is where you will send your collateral to. After sending it wait for 15 confirmation
+      
+        
+Open your Pozoqo wallet and make sure that you have enough PZQ coins to cover the masternode collateral of 1,000 PZQ.
+
+Generate a new BLS key for your masternode. To do this, click on "Tools" > "Debug console" and enter the command 
+"bls generate". The console will output a private and public key. Keep the private key safe as you will need it later.
+
+Get the information needed to register your masternode. This includes the following:<br>
+<li>Masternode IP address and port number</li>
+<li>Masternode BLS public key</li>
+<li>Masternode collateral transaction ID and output index</li><br>
+
+Create a new receiving address for your masternode. To do this, click on "Receive" and then "Create new address". 
+Copy the address as you will need it in a later step.
+
+Create a ProRegTx transaction. To do this, click on "Tools" > "Debug console" and enter the following command:<br>
+
+<code>protx register_prepare "masternode_IP:port" "BLS_public_key" "collateral_txid" collateral_output_index 
+"masternode_reward_address" "masternode_operator_key" "masternode_voting_key" "operator_reward" "voting_fee"</code><br>
+
+Replace "masternode_IP:port" with the IP address and port number of your masternode, "BLS_public_key" with the 
+public key generated in step 2, "collateral_txid" with the transaction ID of the PZQ coins you used as collateral, 
+"collateral_output_index" with the output index of the collateral transaction, "masternode_reward_address" with the 
+address generated in step above, "masternode_operator_key" with the private key generated in step 2, 
+"masternode_voting_key" with a new BLS key that will be used for voting, "operator_reward" with the amount of PZQ 
+you want to pay yourself as a reward, and "voting_fee" with the amount of PZQ you want to charge for voting.
+
+The command will output a proposal hash, which you should copy as you will need it in the next step.
+        </p>
+      <a class="topOfPage" href="#top" title="Go to the top of this page">^ TOP</a>
+
+
+    </div>
+    
+    <!-- ##### Footer ##### -->
+
+    <div id="footer">
+      <div class="left">
+      </div>
+
+      <br class="doNotDisplay doNotPrint" />
+	
+	<a href="http://www.openwebdesign.org" target="_blank">Open Web 
+    Design</a><a href="http://www.dubaiapartments.biz" target="_blank"><img src="spacer.gif" width="5" height="5" border="0"/></a>Thanks 
+    to <a href="http://www.florida-villa.com" target="_blank">Florida Vacation Homes</a> </div>
+    </div>
+  </body>
+</html>
