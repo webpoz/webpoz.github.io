@@ -142,21 +142,9 @@ you want to pay yourself as a reward, and "voting_fee" with the amount of PZQ yo
         <ol>payoutAddress: A new or existing Dash address to receive the owner’s masternode rewards</ol>
         <ol>feeSourceAddress: An (optional) address used to fund ProTx fee. payoutAddress will be used if not specified.</ol>
 
-      <code>
-        
-        protx register_prepare <br>
-  16347a28f4e5edf39f4dceac60e2327931a25fdee1fb4b94b63eeacf0d5879e3 <br>
-  1
-  45.76.230.239:19999 <br>
-  yfgxFhqrdDG15ZWKJAN6dQvn6dZdgBPAip <br>
-  99f20ed1538e28259ff80044982372519a2e6e4cdedb01c96f8f22e755b2b3124fbeebdf6de3587189cf44b3c6e7670e <br>
-  yfRaZN8c3Erpqj9iKnmQ9QDBeUuRhWV3Mg <br>
-  0 <br>
-  yjZVt49WsQd6XSrPVAUGXtJccxviH9ZQpN<br>
-  yR83WsikBaBaNusTnHZf28kAcL8oVmp1TE
-        </code>
+ 
 
-        <h1>Sign the ProRegTx transaction</h1>
+      <h1>Sign the ProRegTx transaction</h1>
 <p>
   
   Use the code below to sign the proregtx transaction<br>
@@ -164,7 +152,20 @@ you want to pay yourself as a reward, and "voting_fee" with the amount of PZQ yo
   
   </p>
 
+     
+   <h3>Generate a BLS key pair</h3>
+<code>
+  bls generate
 
+{
+  "secret": "395555d67d884364f9e37e7e1b29536519b74af2e5ff7b62122e62c2fffab35e",
+  "public": "99f20ed1538e28259ff80044982372519a2e6e4cdedb01c96f8f22e755b2b3124fbeebdf6de3587189cf44b3c6e7670e"
+}
+  </code>
+<br>
+  Go to the vps where you have '.pozoqocore' folder and open the <pozoqo class="conf">
+    masternodeblsprivkey=395555d67d884364f9e37e7e1b29536519b74af2e5ff7b62122e62c2fffab35e
+    </pozoqo> 
 
 
 
